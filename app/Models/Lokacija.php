@@ -19,5 +19,5 @@ class Lokacija extends Model
         return $query -> where('id', '=', $id);
     }
     
-    protected $table = 'Lokacija';
+    protected $table = 'lokacija';
 }
