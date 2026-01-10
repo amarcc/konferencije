@@ -127,7 +127,7 @@ class KonferencijaController extends Controller
      */
     public function show(Konferencija $konferencija)
     {
-        if(!auth() -> user() -> toAdmin() -> exists() and $konferencija -> status != 'odobreno'){
+        if(auth() -> user() and !auth() -> user() -> toAdmin() -> exists() and $konferencija -> status != 'odobreno'){
             return redirect() -> route('konferencija.index') -> with('error', 'Nije dozvoljeno');
         }
         $prijava = null;

@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'lokacija' => $lok -> id,
             'br_mjesta' => $lok -> br_mjesta,
             'link' => 'documents/seminarski-final.pdf',
-            'org_file' => 'documents/seminarski-final.pdf'
+            'org_file' => 'seminarski-final.pdf'
         ]);
 
         Predavaci::factory() -> create([
