@@ -75,7 +75,7 @@ class KonferencijaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request -> validate([
-            'ime' => 'required|string|min:3',
+            'ime' => 'required|string|min:3|max:150',
             'pocetak' => 'required|date',
             'lokacija' => 'required|integer|exists:lokacija,id',
             'professors' => 'required|array|min:1',
@@ -155,7 +155,7 @@ class KonferencijaController extends Controller
     public function update(Request $request, Konferencija $konferencija)
     {
         $validatedData = $request -> validate([
-            'ime' => 'string|required|min:3',
+            'ime' => 'string|required|min:3|max:150',
             'pocetak' => 'date|required',
             'lokacija' => 'required|integer|exists:lokacija,id',
             'professors' => 'required|array|min:1',

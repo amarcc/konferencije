@@ -37,16 +37,16 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request -> validate([
-            'ime' => 'required|min:3',
-            'prezime' => 'required|min:3',
-            'email' => 'unique:users|email|required',
+            'ime' => 'required|min:3|max:20',
+            'prezime' => 'required|min:3|max:20',
+            'email' => 'unique:users|email|required|max:50',
             'datum_rodjenja' => 'date|required',
-            'username' => 'unique:users|required|min:3'
+            'username' => 'unique:users|required|min:3|max:50'
         ]);
         
         $request -> validate([
-            'password' => 'required|min:8',
-            'rep_password' => 'required|min:8',
+            'password' => 'required|min:8|max:255',
+            'rep_password' => 'required|min:8|max:255',
         ]);
         
         if($request -> input('password') !== $request -> input('rep_password')){
@@ -88,19 +88,19 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $validatedData = $request -> validate([
-            'ime' => 'required|min:3',
-            'prezime' => 'required|min:3',
-            'email' => 'email|required|unique:users,email,' . $user -> id,
+            'ime' => 'required|min:3|max:20',
+            'prezime' => 'required|min:3|max:20',
+            'email' => 'email|max:50|required|unique:users,email,' . $user -> id,
             'datum_rodjenja' => 'date|required',
-            'username' => 'required|min:3|unique:users,username,' . $user -> id
+            'username' => 'max:50|required|min:3|unique:users,username,' . $user -> id
         ]);
         
         $password = $request -> input('password');
         
         if($password !== null){
             $request -> validate([
-                'password' => 'required|min:8',
-                'rep_password' => 'required|min:8',
+                'password' => 'required|min:8|max:255',
+                'rep_password' => 'required|min:8|max:255',
             ]);
             if($password !== $request -> input('rep_password')){
                 return redirect() -> back() -> with('error', 'Passwordi nijesu isti');

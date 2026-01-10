@@ -37,8 +37,8 @@ class LokacijaController extends Controller
     public function store(Request $request)
     {
         $validated = $request -> validate([
-            'ime' => 'string|min:3|required',
-            'adresa' => 'string|min:3|required',
+            'ime' => 'string|min:3|max:150|required',
+            'adresa' => 'string|min:3|max:150|required',
             'br_mjesta' => 'integer|required'
         ]);
 
