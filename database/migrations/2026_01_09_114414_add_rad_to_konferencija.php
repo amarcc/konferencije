@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('konferencija', function (Blueprint $table) {
+        Schema::table('Konferencija', function (Blueprint $table) {
             $table->enum('status', ['ceka', 'odbijeno', 'odobreno']) ->default('ceka');
             $table->string('link') -> default('null');
         });
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('konferencija', function (Blueprint $table) {
+        Schema::table('Konferencija', function (Blueprint $table) {
         });
     }
 };
