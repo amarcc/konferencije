@@ -11,8 +11,8 @@
 
 <body class="bg-blue-100 w-full" >
     <nav class="mb-6 py-3 px-6 flex flex-row items-center justify-between bg-blue-500 shadow-sm border-b ">
-        <a href="{{ route('konferencija.index') }}" class="w-fit h-full block text-4xl ">
-            Naučne konferencije i simpozijumi
+        <a href="{{ route('konferencija.index') }}" class="w-fit h-full block text-xl md:text-4xl">
+            Naučne konferencije <wbr> i simpozijumi
         </a>
         <div class="h-full flex gap-2 flex-row items-center justify-center">
             @auth
