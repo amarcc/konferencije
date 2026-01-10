@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('predavaci', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id') -> constrained() -> cascadeOnDelete();
-            $table->foreignId('konferencija_id') -> constrained('konferencija') -> cascadeOnDelete();
+            $table->foreignId('konferencija_id') -> constrained('Konferencija') -> cascadeOnDelete();
             $table->timestamps();
         });
     }
