@@ -20,6 +20,50 @@ class DatabaseSeeder extends Seeder
     */
     public function run(): void
     {
+        $user = User::factory() -> create([
+            'username' => 'amarhunter01',
+            'email' => 'amarcirgic2017@gmail.com',
+            'ime' => 'Amar',
+            'prezime' => 'Cirgic'
+        ]);
+    
+        Administracija::factory() -> create([
+            'user_id' => $user -> id
+        ]);
+    
+        $kon = Konferencija::factory() -> create([
+            'ime' => "Upravljanje udaljenim IT timovima",
+            'kreator' => $user -> id,
+            'pocetak' => now(),
+            'status' => 'odobreno',
+            'link' => 'documents/seminarski-final.pdf',
+            'org_file' => 'documents/seminarski-final.pdf'
+        ]);
+
+        Predavaci::factory() -> create([
+            'user_id' => $user->id,
+            'konferencija_id' => $kon -> id
+        ]);
+    
+        $user = User::factory() -> create([
+            'username' => 'admin',
+            'email' => 'amarhunter01@gmail.com',
+            'ime' => 'Amar',
+            'prezime' => 'Cirgic'
+        ]);
+    
+        Administracija::factory() -> create([
+            'user_id' => $user -> id
+        ]);
+    
+        $user = User::factory() -> create([
+            'username' => 'nijeadmin',
+            'email' => 'amarcirgic360@gmail.com',
+            'ime' => 'Amar',
+            'prezime' => 'Cirgic'
+        ]);
+
+
         if (app()->environment('local')) {
             User::factory(600)->create();
             Lokacija::factory(20) -> create();
@@ -78,48 +122,6 @@ class DatabaseSeeder extends Seeder
         }
 
         
-        $user = User::factory() -> create([
-            'username' => 'amarhunter01',
-            'email' => 'amarcirgic2017@gmail.com',
-            'ime' => 'Amar',
-            'prezime' => 'Cirgic'
-        ]);
-    
-        Administracija::factory() -> create([
-            'user_id' => $user -> id
-        ]);
-    
-        $kon = Konferencija::factory() -> create([
-            'ime' => "Upravljanje udaljenim IT timovima",
-            'kreator' => $user -> id,
-            'pocetak' => now(),
-            'status' => 'odobreno',
-            'link' => 'documents/seminarski-final.pdf',
-            'org_file' => 'documents/seminarski-final.pdf'
-        ]);
-
-        Predavaci::factory() -> create([
-            'user_id' => $user->id,
-            'konferencija_id' => $kon -> id
-        ]);
-    
-        $user = User::factory() -> create([
-            'username' => 'admin',
-            'email' => 'amarhunter01@gmail.com',
-            'ime' => 'Amar',
-            'prezime' => 'Cirgic'
-        ]);
-    
-        Administracija::factory() -> create([
-            'user_id' => $user -> id
-        ]);
-    
-        $user = User::factory() -> create([
-            'username' => 'nijeadmin',
-            'email' => 'amarcirgic360@gmail.com',
-            'ime' => 'Amar',
-            'prezime' => 'Cirgic'
-        ]);
-
+        
     }
 }
