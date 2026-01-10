@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
             'pocetak' => now(),
             'status' => 'odobreno',
             'lokacija' => $lok -> id,
+            'br_mjesta' => $lok -> br_mjesta,
             'link' => 'documents/seminarski-final.pdf',
             'org_file' => 'documents/seminarski-final.pdf'
         ]);
