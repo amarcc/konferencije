@@ -1,19 +1,19 @@
 <x-layout>
     <x-button-row>
         @auth
-            <x-button class="ml-2 text-xl mb-6" :href="route('konferencija.create')">Dodaj konferenciju</x-button>
+            <x-button class="ml-2 text-xl mb-2 md:mb-6" :href="route('konferencija.create')">Dodaj konferenciju</x-button>
 
             @if (auth() -> user() -> toAdmin() -> exists())
-                <x-button class="ml-2 text-xl mb-6" :href="route('administracija.create')">Dodaj administratora</x-button>
-                <x-button class="ml-2 text-xl mb-6 bg-red-500 hover:bg-red-300" :href="route('administracija.edit', auth() -> user() -> toAdmin)">Obriši administratore</x-button>
-                <x-button class="ml-2 text-xl mb-6" :href="route('lokacija.index')">Lokacije</x-button>
-                <x-button class="ml-2 text-xl mb-6" :href="route('analitika.index')">Analitika</x-button>
+                <x-button class="ml-2 text-xl mb-2 md:mb-6" :href="route('administracija.create')">Dodaj administratora</x-button>
+                <x-button class="ml-2 text-xl mb-2 md:mb-6 bg-red-500 hover:bg-red-300" :href="route('administracija.edit', auth() -> user() -> toAdmin)">Obriši administratore</x-button>
+                <x-button class="ml-2 text-xl mb-2 md:mb-6" :href="route('lokacija.index')">Lokacije</x-button>
+                <x-button class="ml-2 text-xl mb-2 md:mb-6" :href="route('analitika.index')">Analitika</x-button>
             @endif
         @endif
     </x-button-row>
     <form id='filter-form' action="{{route('konferencija.index')}}" method="GET">
         @auth
-            <x-button-row class="ml-2">
+            <x-button-row class="ml-2 mb-4!">
                 <p>Filteri:</p>
                 @if(!auth() -> user() -> toAdmin() -> exists())
                     <x-input class="w-fit ring-0 inline" name="filters" type="radio" value="odobreno" :checked="request('filters') === 'odobreno' or !request('filters')"></x-input><div class="input">Svi</div>
