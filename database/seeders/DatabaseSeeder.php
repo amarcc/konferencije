@@ -27,6 +27,12 @@ class DatabaseSeeder extends Seeder
             'prezime' => 'Cirgic'
         ]);
     
+        $lok = Lokacija::factory() -> create([
+            'ime' => "ETF sala 106",
+            'br_mjesta' => "200",
+            'adresa' => 'Bulevar Džordža Vašingtona bb'
+        ]);
+
         Administracija::factory() -> create([
             'user_id' => $user -> id
         ]);
@@ -36,6 +42,7 @@ class DatabaseSeeder extends Seeder
             'kreator' => $user -> id,
             'pocetak' => now(),
             'status' => 'odobreno',
+            'lokacija' => $lok -> id,
             'link' => 'documents/seminarski-final.pdf',
             'org_file' => 'documents/seminarski-final.pdf'
         ]);
