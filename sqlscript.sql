@@ -15,7 +15,7 @@ CREATE TABLE lokacija(
     adresa CHAR(150)
 )
 
-CREATE TABLE konferencija(
+CREATE TABLE Konferencija(
     id AUTOINCREMENT INT PRIMARY KEY,
     ime CHAR(150),
     kreator INT,
