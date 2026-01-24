@@ -23,8 +23,8 @@
                     <x-input class="w-fit ring-0 inline" name="filters" type="radio" value="ceka" :checked="request('filters') === 'ceka'"></x-input><div class="input">Na čekanju</div>
                     <x-input class="w-fit ring-0 inline" name="filters" type="radio" value="odobreno" :checked="request('filters') === 'odobreno' or !request('filters')"></x-input><div class="input">Odobreni</div>
                     <x-input class="w-fit ring-0 inline" name="filters" type="radio" value="odbijeno" :checked="request('filters') === 'odbijeno'"></x-input><div class="input">Odbijeni</div>
-                    <x-submit-button form="filter-form">Primijeni</x-submit-button>
                 @endif
+                <x-submit-button form="filter-form">Primijeni</x-submit-button>
             </x-button-row>
         @endauth
     </form>
