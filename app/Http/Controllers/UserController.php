@@ -92,15 +92,15 @@ class UserController extends Controller
             'prezime' => 'required|min:3|max:20',
             'email' => 'email|max:50|required|unique:users,email,' . $user -> id,
             'datum_rodjenja' => 'date|required',
-            'username' => 'max:50|required|min:3|unique:users,username,' . $user -> id
+            'username' => 'max:50|required|min:3|max:50|unique:users,username,' . $user -> id
         ]);
         
         $password = $request -> input('password');
         
         if($password !== null){
             $request -> validate([
-                'password' => 'required|min:8|max:255',
-                'rep_password' => 'required|min:8|max:255',
+                'password' => 'required|min:8|max:50',
+                'rep_password' => 'required|min:8|max:50',
             ]);
             if($password !== $request -> input('rep_password')){
                 return redirect() -> back() -> with('error', 'Passwordi nijesu isti');
