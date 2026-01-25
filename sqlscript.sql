@@ -3,7 +3,7 @@ CREATE TABLE users(
     ime CHAR(20),
     prezime CHAR(20),
     email CHAR(50),
-    password CHAR(255),
+    password CHAR(50),
     datum_rodjenja DATE,
     username CHAR(50)
 )
@@ -24,7 +24,7 @@ CREATE TABLE Konferencija(
     pocetak DATE,
     status ENUM('ceka', 'odobreno', 'odbijeno') DEFAULT 'ceka'
     link CHAR(255),
-    org_file(255),
+    org_file CHAR(255),
     CONSTRAINT fk_K_U FOREIGN KEY (kreator) REFERENCES users(id),
     CONSTRAINT fk_K_L FOREIGN KEY (lokacija) REFERENCES lokacija(id)
 )

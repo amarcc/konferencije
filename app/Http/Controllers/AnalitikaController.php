@@ -14,8 +14,8 @@ class AnalitikaController extends Controller
     public function index()
     {
         $count_kon = DB::table('Konferencija')->count();
-        $count_prijave = DB::table('Prijava')->count();
-        $count_users = DB::table('Users')->count();
+        $count_prijave = DB::table('prijava')->count();
+        $count_users = DB::table('users')->count();
         $count_kon_allowed = Konferencija::where('status', '=', 'odobreno')->count();
         $count_kon_rejected = Konferencija::where('status', '=', 'odbijeno')->count();
 
