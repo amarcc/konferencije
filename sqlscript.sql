@@ -32,7 +32,7 @@ CREATE TABLE Konferencija(
 CREATE TABLE Administracija(
     id AUTOINCREMENT INT PRIMARY KEY,
     user_id INT,
-    datum_rodjenja DATE,
+    datum_zaposljenja DATE,
     CONSTRAINT fk_A_U FOREIGN KEY (user_id) REFERENCES users(id)
 )
 
