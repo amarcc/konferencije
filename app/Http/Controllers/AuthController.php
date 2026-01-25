@@ -47,7 +47,7 @@ class AuthController extends Controller
         ], $remember);
 
         if($check){
-            return redirect() -> intended('/');
+            return redirect() -> route('konferencija.index') -> with('success', "Uspješno ste se prijavili");
         } else {
             return redirect() -> back() -> with('error', 'Invalid credentials');
         };

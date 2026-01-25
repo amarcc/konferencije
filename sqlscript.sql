@@ -3,7 +3,7 @@ CREATE TABLE users(
     ime CHAR(20),
     prezime CHAR(20),
     email CHAR(50),
-    password CHAR(50),
+    password CHAR(255),
     datum_rodjenja DATE,
     username CHAR(50)
 )
